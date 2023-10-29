@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-// Route::get('quizForm/{id?}', 'QuizController'); //@ShowForm
-// Route::post('/quizForm', 'QuizController'); //@SubmitForm
+Route::get('quizForm/{id?}', 'QuizController'); //@ShowForm
+Route::post('/quizForm', 'QuizController'); //@SubmitForm
