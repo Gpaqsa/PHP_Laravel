@@ -15,10 +15,21 @@ class CreateQuizzesTable extends Migration
             $table->text('options');
             $table->timestamps();
         });
+        Schema::table('quizzes', function (Blueprint $table) {
+            // Add status field
+            $table->boolean('status')->default(1); // Assuming default status is active
+
+            // Add photo field
+            $table->string('photo')->nullable();
+        });
     }
 
     public function down()
     {
         Schema::dropIfExists('quizzes');
+        Schema::table('quizzes', function (Blueprint $table) {
+            $table->dropColumn('status');
+            $table->dropColumn('photo');
+        });
     }
 }

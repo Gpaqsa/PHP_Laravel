@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\App\http\Controllers\QuizController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', [QuizController::class, 'index']);
+
 
 Route::get('quizForm/{id?}', 'QuizController'); //@ShowForm
 Route::post('/quizForm', 'QuizController'); //@SubmitForm
