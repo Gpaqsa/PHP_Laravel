@@ -15,6 +15,14 @@ use Illuminate\App\http\Controllers\QuizController;
 
 Route::get('/', [QuizController::class, 'index']);
 
+Route::get('quizForm/{id?}', [QuizController::class, 'index']);
+Route::post('/quizForm', [QuizController::class, 'submitForm']);
 
-Route::get('quizForm/{id?}', 'QuizController'); //@ShowForm
-Route::post('/quizForm', 'QuizController'); //@SubmitForm
+
+
+
+Route::middleware(['custom'])->group(function () {
+   
+    Route::get('/example', 'ExampleController@index');
+
+});
